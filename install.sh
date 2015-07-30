@@ -1,8 +1,8 @@
 #!/bin/bash
 function config_me_as_ansible (){
 	echo "Adding ansible repo and installing it"
-	echo apt-add-repository ppa:ansible/ansible
-	echo apt-get update
+	apt-add-repository ppa:ansible/ansible
+	apt-get update
 	apt-get install software-properties-common ansible
 	exit 0
 }
