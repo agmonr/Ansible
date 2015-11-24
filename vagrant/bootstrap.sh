@@ -9,6 +9,8 @@ if [[ "$( hostname )" == "ansible" ]]; then
   apt-get install -y software-properties-common ansible
   apt-get install -y git vim htop iotop lsof nmap netcat-traditional iptraf  
   su user -c "git clone https://github.com/agmonr/Ansible /home/user/git/"
+  su user -c "mkdir /home/user/.ssh/"
+  su user -c "ssh-keygen -f /home/user/.ssh/id_rsa -t rsa -N ''" 
 fi
 
 
