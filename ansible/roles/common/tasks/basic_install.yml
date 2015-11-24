@@ -8,10 +8,4 @@
   tags:
   - install_basic
   with_items:
-    - mc
-    - htop
-    - iptraf-ng
-    - iotop 
-    - lsof 
-    - nmap 
-    - nc
+    - common_packages 
