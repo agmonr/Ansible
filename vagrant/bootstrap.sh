@@ -7,8 +7,8 @@ if [[ "$( hostname )" == "ansible" ]]; then
   apt-add-repository ppa:ansible/ansible
   apt-get update
   apt-get install -y software-properties-common ansible
-  apt-get install git vim htop iotop lsof nmap nc iptraf  
-  git clone https://github.com/agmonr/Ansible /home/user/ansible/
+  apt-get install -y git vim htop iotop lsof nmap netcat-traditional iptraf  
+  su user -c "clone https://github.com/agmonr/Ansible /home/user/git/"
 fi
 
 
