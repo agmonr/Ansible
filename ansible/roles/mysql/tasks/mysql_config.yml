@@ -1,0 +1,27 @@
+#- name: update_repo 
+#  tags:
+#    - install_mongodb
+#  apt: update_cache=yes
+
+- name: mysql_config
+  tags: 
+    - mysql_config
+  mysql_db: name={{ DB_NAME }} state=present
+
+- name: mysql_add_user
+  tags: 
+    - mysql_add_user
+  mysql_user: name={{ DB_USER }} host="client" password={{ DB_PASSWORD }} priv={{ DB_NAME }}.*:ALL state=present
+
+- name: mysql_copy_scheme
+  tags: 
+    - mysql_copy_scheme
+  copy: src=wordpress.sql dest=/tmp/  
+
+- name: mysql_import_scheme
+  tags: 
+    - mysql_import_scheme
+  mysql_db: name={{ DB_NAME }} state=import target=/tmp/wordpress.sql 
+  
+
+

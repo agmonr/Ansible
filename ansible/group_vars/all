@@ -1,0 +1,11 @@
+hosts: all
+ansible_ssh_user: user
+ansible_ssh_pass: qwe
+ansible_sudo: yes
+
+mysql_server_ip: "192.168.56.10" 
+DB_NAME: "wordpress"
+DB_USER: "dbuser"
+DB_PASSWORD: "dbpass"
+DB_CHARSET: "utf8"
+

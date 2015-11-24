@@ -1,0 +1,15 @@
+[all:children]
+mysql
+client
+
+[mysql:children]
+ProdMysql
+
+[client:children]
+ProdClient
+
+[ProdClient]
+client
+
+[ProdMysql]
+mysql
