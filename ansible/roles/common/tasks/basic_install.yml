@@ -1,6 +1,6 @@
 ---
-#- name: update_APT_package_cache
-#  apt: update_cache=yes
+- name: ssh_key_add
+  authorized_key: user={{ remote_user }}  key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
  
 - name: Install_basic_tools
   apt: pkg={{item}} state=installed force=yes

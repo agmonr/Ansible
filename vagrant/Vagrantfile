@@ -9,8 +9,8 @@ domain   = '.local'
 
 nodes = [
   { :hostname => 'ansible', :ipoctet => '100', :ram => 1024 },
-  { :hostname => 'mysql', :ipoctet => '100', :ram => 1024 },
-  { :hostname => 'client', :ipoctet => '100', :ram => 1024 },
+  { :hostname => 'mysql', :ipoctet => '101', :ram => 1024 },
+  { :hostname => 'client', :ipoctet => '102', :ram => 1024 },
 ]
 
 subnets = ['10.0.0' ]
