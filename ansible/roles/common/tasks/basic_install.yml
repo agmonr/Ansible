@@ -8,4 +8,4 @@
   tags:
   - install_basic
   with_items:
-    - common_packages 
+    - "{{ common_packages }}"

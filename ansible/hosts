@@ -4,20 +4,12 @@ client
 
 [mysql:children]
 ProdMysql
-DevMysql
 
 [client:children]
 ProdClient
-DevClient
 
 [ProdClient]
 client
 
 [ProdMysql]
 mysql
-
-[DevClient]
-Dev
-
-[DevMysql]
-Dev
