@@ -13,5 +13,9 @@ if [[ "$( hostname )" == "ansible" ]]; then
   su user -c "ssh-keygen -f /home/user/.ssh/id_rsa -t rsa -N ''" 
 fi
 
+echo "10.10.0.100      ansible" >> /etc/hosts
+echo "10.10.0.101      mysql" >> /etc/hosts
+echo "10.10.0.102      client" >> /etc/hosts
+
 
 
