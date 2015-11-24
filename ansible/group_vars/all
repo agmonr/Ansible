@@ -11,6 +11,7 @@ common_packages:
   - nmap 
   - netcat-traditional
 
+mysql_root_password: "qwe123"
 mysql_server_ip: "10.10.0.101" 
 DB_NAME: "wordpress"
 DB_USER: "dbuser"

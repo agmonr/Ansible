@@ -2,11 +2,27 @@
   tags: 
     - mysql_config
   mysql_db: name={{ DB_NAME }} state=present
+  ignore_errors: yes
+
+- name: update mysql root password for all root accounts
+  mysql_user: name=root host={{ item }} password={{ mysql_root_password }} priv=*.*:ALL,GRANT
+  with_items:
+  - "{{ ansible_hostname }}"
+  - 127.0.0.1
+  - ::1
+  - localhost
+  ignore_errors: yes
+
+- name: mysql_config_open_network
+  replace: dest=/etc/mysql/my.cnf regexp="bind-address.*=.127.0.0.1" replace="bind-address = 0.0.0.0"
+
+- name: mysql_service_restart
+  service: name=mysql state=restarted
 
 - name: mysql_add_user
   tags: 
     - mysql_add_user
-  mysql_user: name={{ DB_USER }} host="client" password={{ DB_PASSWORD }} priv={{ DB_NAME }}.*:ALL state=present
+  mysql_user: login_password={{mysql_root_password }} login_user="root" name={{ DB_USER }} host="client" password={{ DB_PASSWORD }} priv={{ DB_NAME }}.*:ALL state=present
 
 - name: mysql_copy_scheme
   tags: 
@@ -16,7 +32,7 @@
 - name: mysql_import_scheme
   tags: 
     - mysql_import_scheme
-  mysql_db: name={{ DB_NAME }} state=import target=/tmp/wordpress.sql 
+  mysql_db: login_password={{mysql_root_password }} login_user="root"  name={{ DB_NAME }} state=import target=/tmp/wordpress.sql 
   
 
 
