@@ -13,9 +13,6 @@
   - localhost
   ignore_errors: yes
 
-- name: mysql_config_open_network
-  replace: dest=/etc/mysql/my.cnf regexp="bind-address.*=.127.0.0.1" replace="bind-address = 0.0.0.0"
-
 - name: mysql_service_restart
   service: name=mysql state=restarted
 
@@ -28,6 +25,10 @@
   tags: 
     - mysql_copy_scheme
   copy: src=wordpress.sql dest=/tmp/  
+
+- name: mysql_fix_scheme
+  replace: dest=/tmp/wordpress.sql regexp="10.10.0.102" replace={{ FRONTEND_IP }} backup=yes
+
 
 - name: mysql_import_scheme
   tags: 

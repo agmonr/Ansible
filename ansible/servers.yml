@@ -7,6 +7,6 @@
   roles:
     - mysql
 
-- hosts: client
+- hosts: frontend
   roles:
-    - client
+    - wordpress
