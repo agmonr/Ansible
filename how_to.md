@@ -1,7 +1,8 @@
 # Ansible workshop
 
 ### Vagrant 
-This vagrant configuration will create 4 machines:
+
+The vagrant configuration will create 4 machines:
 ansible (latest stable): 10.10.0.100
 Prod Database: 10.10.0.101
 Prod Frontend: 10.10.0.102
@@ -13,6 +14,10 @@ password: qwe123
 Each of the machines has only 512Mb ram so it can run also under older laptops, you may want to edit the vagrant file and change it to 1024Mb
 
 ### Use
+Download the vagrant files from:
+
+https://github.com/agmonr/Ansible/tree/master/vagrant
+
 put the "Vagrant" and "bootstrap.sh" in a folder and run "vagrant up" to create and run the machines.
 
 As long as the vagrant conintue to run, you can ignore the errors.
