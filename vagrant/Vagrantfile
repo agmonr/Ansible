@@ -8,9 +8,10 @@ VAGRANTFILE_API_VERSION = "2"
 domain   = '.local'
 
 nodes = [
-  { :hostname => 'ansible', :ipoctet => '100', :ram => 1024 },
-  { :hostname => 'mysql', :ipoctet => '101', :ram => 1024 },
-  { :hostname => 'client', :ipoctet => '102', :ram => 1024 },
+  { :hostname => 'ansible', :ipoctet => '100', :ram => 512 },
+  { :hostname => 'mysql', :ipoctet => '101', :ram => 512 },
+  { :hostname => 'client', :ipoctet => '102', :ram => 512 },
+  { :hostname => 'dev', :ipoctet => '110', :ram => 512 },
 ]
 
 subnets = ['10.10.0' ]

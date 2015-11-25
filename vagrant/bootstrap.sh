@@ -11,6 +11,7 @@ if [[ "$( hostname )" == "ansible" ]]; then
   su user -c "git clone https://github.com/agmonr/Ansible /home/user/git/"
   su user -c "mkdir /home/user/.ssh/"
   su user -c "ssh-keygen -f /home/user/.ssh/id_rsa -t rsa -N ''" 
+  echo "10.10.0.110      dev" >> /etc/hosts
 fi
 
 echo "10.10.0.100      ansible" >> /etc/hosts
