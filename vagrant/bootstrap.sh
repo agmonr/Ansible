@@ -15,8 +15,8 @@ if [[ "$( hostname )" == "ansible" ]]; then
 fi
 
 echo "10.10.0.100      ansible" >> /etc/hosts
-echo "10.10.0.101      mysql" >> /etc/hosts
-echo "10.10.0.102      client" >> /etc/hosts
+echo "10.10.0.101      dbserver" >> /etc/hosts
+echo "10.10.0.102      webserver" >> /etc/hosts
 
 
 
