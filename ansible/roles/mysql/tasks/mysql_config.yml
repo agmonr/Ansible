@@ -1,11 +1,11 @@
 - name: mysql_config
   tags: 
     - mysql_config
-  mysql_db: name={{ DB_NAME }} state=present
+  mysql_db: name={{ db_name }} state=present
   ignore_errors: yes
 
 - name: update mysql root password for all root accounts
-  mysql_user: name=root host={{ item }} password={{ mysql_root_password }} priv=*.*:ALL,GRANT
+  mysql_user: login_password={{mysql_root_password }} login_user="root" name=root host={{ item }} password={{ mysql_root_password }} priv=*.*:ALL,GRANT
   with_items:
   - "{{ ansible_hostname }}"
   - 127.0.0.1
@@ -19,7 +19,7 @@
 - name: mysql_add_user
   tags: 
     - mysql_add_user
-  mysql_user: login_password={{mysql_root_password }} login_user="root" name={{ DB_USER }} host="client" password={{ DB_PASSWORD }} priv={{ DB_NAME }}.*:ALL state=present
+  mysql_user: login_password={{mysql_root_password }} login_user="root" name={{ db_user }} host={{ frontend_ip }}  password={{ db_password }} priv={{ db_name }}.*:ALL state=present
 
 - name: mysql_copy_scheme
   tags: 
@@ -27,13 +27,12 @@
   copy: src=wordpress.sql dest=/tmp/  
 
 - name: mysql_fix_scheme
-  replace: dest=/tmp/wordpress.sql regexp="10.10.0.102" replace={{ FRONTEND_IP }} backup=yes
-
+  replace: dest=/tmp/wordpress.sql regexp="10.10.0.102" replace={{ frontend_ip }} backup=yes
 
 - name: mysql_import_scheme
   tags: 
     - mysql_import_scheme
-  mysql_db: login_password={{mysql_root_password }} login_user="root"  name={{ DB_NAME }} state=import target=/tmp/wordpress.sql 
+  mysql_db: login_password={{mysql_root_password }} login_user="root"  name={{ db_name }} state=import target=/tmp/wordpress.sql 
   
 
 
