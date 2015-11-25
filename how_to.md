@@ -20,10 +20,13 @@ As long as the vagrant conintue to run, you can ignore the errors.
 Login to the ansible machine (ssh user@10.10.0.100):
 
 cd git/ansible/
-ansible all -a "id" -k (provide password) (to check connectivity) 
+
+ansible all -a "id" -k (provide password) (to check connectivity)
+
 ansible-playbook servers.yml -k (provide password) (to activate ansible)
 
 In case of failure, press Ctrl+c and try to re-run.
 
-You may need to reboot all the machines, you can easily do it using: 
+You may need to reboot all the machines, you can easily do it using:
+
 ansible all -a "reboot" 
