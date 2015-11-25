@@ -16,19 +16,19 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', '{{ DB_NAME }}');
+define('DB_NAME', '{{ db_name }}');
 
 /** MySQL database username */
-define('DB_USER', '{{ DB_USER }}');
+define('DB_USER', '{{ db_user }}');
 
 /** MySQL database password */
-define('DB_PASSWORD', '{{ DB_PASSWORD }}');
+define('DB_PASSWORD', '{{ db_password }}');
 
 /** MySQL hostname */
 define('DB_HOST', '{{ mysql_server_ip }}');
 
 /** Database Charset to use in creating database tables. */
-define('DB_CHARSET', '{{ DB_CHARSET }}');
+define('DB_CHARSET', '{{ db_charset }}');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
