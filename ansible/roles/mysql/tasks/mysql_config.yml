@@ -4,8 +4,9 @@
   mysql_db: name={{ db_name }} state=present
   ignore_errors: yes
 
-- name: update mysql root password for all root accounts
-  mysql_user: login_password={{mysql_root_password }} login_user="root" name=root host={{ item }} password={{ mysql_root_password }} priv=*.*:ALL,GRANT
+- name: update_mysql_root_password_for_all_root_accounts
+  tags: update_mysql_root_password_for_all_root_accounts
+  mysql_user: name=root host={{ item }} password={{ mysql_root_password }} priv=*.*:ALL,GRANT
   with_items:
   - "{{ ansible_hostname }}"
   - 127.0.0.1
